@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Search</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen ">
+  <nav class="bg-red-900 text-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-14">
+        <a href="#" class="font-semibold tracking-wide">🎞️ Karen's Movie App</a>
+        <ul class="hidden sm:flex items-center gap-6 opacity-90">
+          <li><a href="#" class="hover:opacity-100">Home</a></li>
+          <li><a href="#trending" class="hover:opacity-100">Trending</a></li>
+          <li><a href="#popular" class="hover:opacity-100">Popular</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="bg-gradient-to-b from-red-950 to-black-500 text-black">
+    <div class="max-w-6xl mx-auto px-4 py-8">
+      <h1 class="text-3xl sm:text-4xl font-bold text-white">Discover Movies & TV</h1>
+      <p class="opacity-80 mt-1 text-white">Trending titles and what’s popular right now.</p>
+
+      <div class="max-w-6xl mx-auto">
+        <h1 class="text-2xl font-bold mb-6 text-center text-white">Movie Search</h1>
+
+        <div class="flex gap-2 mb-6">
+          <input id="movieInput" type="text" placeholder="Enter movie name" class="border p-2 w-full rounded" />
+          <button onclick="searchMovie()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded">
+            Search
+          </button>
+        </div>
+        <div id="movieResult" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+
+      </div>
+    </div>
+  </header>
+<section id="trending" class="max-w-6xl mx-auto px-4 py-8 bg-[#151a24] rounded-2xl">
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-2xl font-bold text-white">Trending</h2>
+    <div class="bg-gray-200 rounded-full p-1 flex text-sm">
+      <button data-trending="day"
+              class="trend-tab px-3 py-1 rounded-full bg-white shadow text-black">Today</button>
+      <button data-trending="week"
+              class="trend-tab px-3 py-1 rounded-full hover:bg-white/80 text-black">This Week</button>
+    </div>
+  </div>
+
+  <div id="trendingGrid" class="space-y-10"></div>
+</section>
+<section id="popular" class="max-w-6xl mx-auto px-4 py-8 bg-[#0f172a] text-white rounded-[28px] mt-8">
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-2xl font-bold">Most Popular</h2>
+    <div class="inline-flex bg-gray-200 rounded-full p-1 text-sm text-black">
+      <button data-pop="streaming" class="pop-tab px-3 py-1 rounded-full bg-white shadow">Streaming</button>
+      <button data-pop="tv" class="pop-tab px-3 py-1 rounded-full hover:bg-white/80">On TV</button>
+      <button data-pop="rent" class="pop-tab px-3 py-1 rounded-full hover:bg-white/80">For Rent</button>
+      <button data-pop="theaters" class="pop-tab px-3 py-1 rounded-full hover:bg-white/80">In Theaters</button>
+    </div>
+  </div>
+
+  <!-- horizontal scroller like Trending -->
+<div id="popularGrid" class="flex gap-4 overflow-x-auto no-scrollbar pb-2"></div>
+</section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
